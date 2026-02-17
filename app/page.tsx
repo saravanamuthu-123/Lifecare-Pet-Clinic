@@ -14,7 +14,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { Clock, Award, Heart, Shield, Phone, Activity } from 'lucide-react';
+import { Clock, Award, Heart, Shield, Phone, Activity, Dog, Cat, Bird, Footprints } from 'lucide-react';
 import clinicInfo from '@/data/clinic-info.json';
 import services from '@/data/services.json';
 import testimonials from '@/data/testimonials.json';
@@ -23,9 +23,9 @@ export default function Home() {
   const featuredServices = services.slice(0, 6);
 
   return (
-    <div className="min-h-screen">
+     <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F5F7FA] via-white to-[#F5F7FA] pt-20">
+      <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden bg-gradient-to-br from-[#F5F7FA] via-white to-[#F5F7FA] pt-20">
         <AnimatedPets />
 
         {/* Curved Background Shapes */}
@@ -110,7 +110,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Side - Content */}
-              <div className="text-center lg:text-left order-2 lg:order-1">
+              <div className="text-center lg:text-left order-1 lg:order-1">
                 {/* Trust Indicators */}
                 <motion.div
                   className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10"
@@ -198,10 +198,10 @@ export default function Home() {
                     <PawButton
                       variant="secondary"
                       size="lg"
-                      onClick={() => window.location.href = `tel:${clinicInfo.contact.emergencyPhone}`}
+                      onClick={() => window.location.href = `tel:${clinicInfo.contact.ambulance}`}
                     >
                       <Phone className="w-5 h-5 mr-2" />
-                      Emergency? Call Now
+                      Emergency? Call Ambulance
                     </PawButton>
                   </motion.div>
                 </motion.div>
@@ -209,7 +209,7 @@ export default function Home() {
 
               {/* Right Side - Hero Image */}
               <motion.div
-                className="relative order-1 lg:order-2"
+                className="relative order-2 lg:order-2"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -517,8 +517,12 @@ export default function Home() {
 
       {/* Emergency Contact Banner */}
       <section className="py-16 bg-gradient-to-r from-[#FDB913] to-[#e5a40f] relative overflow-hidden">
-        <FloatingElements count={10}>
-          {() => <Phone className="w-12 h-12 text-white" />}
+        <FloatingElements count={20}>
+          {(index) => {
+            const icons = [Dog, Cat, Bird, Footprints];
+            const Icon = icons[index % icons.length];
+            return <Icon className="w-12 h-12 text-white" />;
+          }}
         </FloatingElements>
 
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -535,16 +539,16 @@ export default function Home() {
               Pet Emergency? We're Here to Help
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Our emergency team is available round the clock to provide immediate care for your pet.
+              Our ambulance service is available round the clock to provide immediate care for your pet.
             </p>
             <motion.a
-              href={`tel:${clinicInfo.contact.emergencyPhone}`}
+              href={`tel:${clinicInfo.contact.ambulance}`}
               className="inline-flex items-center gap-3 bg-white text-[#FDB913] px-8 py-4 rounded-full text-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Phone className="w-8 h-8 animate-pulse-ring" />
-              {clinicInfo.contact.emergencyPhone}
+              {clinicInfo.contact.ambulance}
             </motion.a>
           </motion.div>
         </div>

@@ -1,130 +1,65 @@
 [
   {
-    "id": "dr-rajesh-kumar",
-    "name": "Dr. Rajesh Kumar",
-    "title": "Chief Veterinary Officer",
-    "specialization": "Surgery & Critical Care",
-    "qualifications": "BVSc, MVSc (Surgery)",
-    "experience": 15,
-    "bio": "Dr. Rajesh Kumar is a highly skilled veterinary surgeon with over 15 years of experience. He specializes in soft tissue and orthopedic surgeries and has performed thousands of successful procedures. His compassionate approach and technical expertise make him a favorite among pet owners.",
-    "education": [
-      "Bachelor of Veterinary Science - Madras Veterinary College",
-      "Master of Veterinary Science (Surgery) - TANUVAS"
-    ],
-    "image": "/images/doctor_images/doctoricon1.png",
-    "email": "dr.rajesh@lifecarepetclinic.com",
-    "phone": "+91 90879 90819"
+    "id": "dr-s-selvakumar",
+    "name": "Dr. S. Selvakumar",
+    "title": "General Consultant",
+    "specialization": "General Veterinary Medicine",
+    "qualifications": "MVSc",
+    "bio": "Dr. S. Selvakumar is an experienced general veterinary consultant providing comprehensive medical care for pets. With advanced training (MVSc), he focuses on accurate diagnosis, preventive healthcare, and long-term wellness management.",
+    "image": "/images/doctor_images/doctoricon2.png"
   },
   {
-    "id": "dr-priya-sharma",
-    "name": "Dr. Priya Sharma",
-    "title": "Senior Veterinarian",
-    "specialization": "Internal Medicine & Cardiology",
-    "qualifications": "BVSc, MVSc (Medicine)",
-    "experience": 12,
-    "bio": "Dr. Priya Sharma specializes in internal medicine and cardiology. She has a special interest in diagnosing and managing complex medical cases. Her gentle demeanor and thorough approach help anxious pets feel at ease during examinations.",
-    "education": [
-      "Bachelor of Veterinary Science - Kerala Veterinary College",
-      "Master of Veterinary Science (Medicine) - KVASU"
-    ],
-    "image": "/images/doctor_images/doctoricon2.png",
-    "email": "dr.priya@lifecarepetclinic.com",
-    "phone": "+91 90879 90819"
+    "id": "dr-s-sundararaj",
+    "name": "Dr. S. Sundararaj",
+    "title": "General Consultant",
+    "specialization": "General Veterinary Practice",
+    "qualifications": "BVSc",
+    "bio": "Dr. S. Sundararaj offers dedicated general veterinary services including routine check-ups, vaccinations, and primary medical care. His patient-focused approach ensures pets receive attentive and compassionate treatment.",
+    "image": "/images/doctor_images/doctoricon2.png"
   },
   {
-    "id": "dr-arun-mehta",
-    "name": "Dr. Arun Mehta",
-    "title": "Veterinary Specialist",
-    "specialization": "Orthopedics & Rehabilitation",
-    "qualifications": "BVSc, PG Diploma (Orthopedics)",
-    "experience": 10,
-    "bio": "Dr. Arun Mehta is passionate about helping pets regain mobility and live pain-free lives. His expertise in orthopedic surgery and rehabilitation has helped countless pets recover from injuries and chronic conditions.",
-    "education": [
-      "Bachelor of Veterinary Science - Bombay Veterinary College",
-      "Post Graduate Diploma in Veterinary Orthopedics"
-    ],
-    "image": "/images/doctor_images/doctoricon3.png",
-    "email": "dr.arun@lifecarepetclinic.com",
-    "phone": "+91 90879 90819"
+    "id": "dr-t-s-mukilarasu",
+    "name": "Dr. T. S. Mukilarasu",
+    "title": "General Consultant",
+    "specialization": "General Veterinary Care",
+    "qualifications": "BVSc",
+    "bio": "Dr. T. S. Mukilarasu provides essential veterinary consultation services, focusing on preventive medicine and routine healthcare for companion animals.",
+    "image": "/images/doctor_images/doctoricon2.png"
   },
   {
-    "id": "dr-kavitha-reddy",
-    "name": "Dr. Kavitha Reddy",
-    "title": "Veterinary Dermatologist",
-    "specialization": "Dermatology & Allergology",
-    "qualifications": "BVSc, MVSc (Dermatology)",
-    "experience": 8,
-    "bio": "Dr. Kavitha Reddy specializes in diagnosing and treating skin conditions in pets. From allergies to autoimmune diseases, she helps pets find relief from uncomfortable skin problems. Her systematic approach ensures accurate diagnosis and effective treatment.",
-    "education": [
-      "Bachelor of Veterinary Science - GADVASU",
-      "Master of Veterinary Science (Dermatology)"
-    ],
-    "image": "/images/doctor_images/doctoricon4.png",
-    "email": "dr.kavitha@lifecarepetclinic.com",
-    "phone": "+91 90879 90819"
+    "id": "dr-p-tamilmahan",
+    "name": "Dr. P. Tamilmahan",
+    "title": "Expert Consultant",
+    "specialization": "Surgery & Radiology",
+    "qualifications": "MVSc, PhD (Surgery and Radiology)",
+    "bio": "Dr. P. Tamilmahan specializes in advanced surgical procedures and veterinary radiology. With doctoral-level expertise, he handles complex surgical cases and diagnostic imaging with precision and care.",
+    "image": "/images/doctor_images/doctoricon1.png"
   },
   {
-    "id": "dr-vikram-singh",
-    "name": "Dr. Vikram Singh",
-    "title": "Emergency & Critical Care Specialist",
-    "specialization": "Emergency Medicine",
-    "qualifications": "BVSc, Certified Emergency Veterinarian",
-    "experience": 9,
-    "bio": "Dr. Vikram Singh thrives in high-pressure situations. His quick thinking and extensive emergency medicine training have saved countless lives. He leads our 24/7 emergency response team with dedication and skill.",
-    "education": [
-      "Bachelor of Veterinary Science - Rajasthan Veterinary College",
-      "Certification in Emergency and Critical Care"
-    ],
-    "image": "/images/doctor_images/doctoricon5.png",
-    "email": "dr.vikram@lifecarepetclinic.com",
-    "phone": "+91 90879 90819"
+    "id": "dr-m-kesavan",
+    "name": "Dr. M. Kesavan",
+    "title": "Expert Consultant",
+    "specialization": "Internal Medicine",
+    "qualifications": "MVSc, PhD (Internal Medicine - Stockholm, Sweden)",
+    "bio": "Dr. M. Kesavan is a specialist in veterinary internal medicine with international academic exposure from Stockholm, Sweden. He manages complex medical conditions with evidence-based treatment protocols.",
+    "image": "/images/doctor_images/doctoricon1.png"
   },
   {
-    "id": "dr-meera-patel",
-    "name": "Dr. Meera Patel",
-    "title": "Exotic Animal Specialist",
+    "id": "dr-m-veeraselvam",
+    "name": "Dr. M. Veeraselvam",
+    "title": "Avian & Exotic Wing Specialist",
     "specialization": "Avian & Exotic Pet Medicine",
-    "qualifications": "BVSc, Certification in Exotic Animal Medicine",
-    "experience": 7,
-    "bio": "Dr. Meera Patel has a unique passion for exotic pets. From parrots to iguanas, she provides specialized care for birds, reptiles, and small mammals. Her extensive knowledge and gentle handling make her the go-to vet for exotic pet owners.",
-    "education": [
-      "Bachelor of Veterinary Science - Anand Veterinary College",
-      "Certification in Exotic Animal Medicine"
-    ],
-    "image": "/images/doctor_images/doctoricon6.png",
-    "email": "dr.meera@lifecarepetclinic.com",
-    "phone": "+91 90879 90819"
+    "qualifications": "MVSc, PhD",
+    "bio": "Dr. M. Veeraselvam specializes in the medical care of birds and exotic animals. His advanced academic training enables him to handle specialized diagnostic and treatment needs for non-traditional pets.",
+    "image": "/images/doctor_images/doctoricon6.png"
   },
   {
-    "id": "dr-suresh-nair",
-    "name": "Dr. Suresh Nair",
-    "title": "Veterinary Dentist",
-    "specialization": "Veterinary Dentistry",
-    "qualifications": "BVSc, Advanced Certification in Dentistry",
-    "experience": 11,
-    "bio": "Dr. Suresh Nair believes that good dental health is fundamental to overall pet wellness. His expertise in veterinary dentistry helps pets maintain healthy teeth and gums, preventing serious health issues.",
-    "education": [
-      "Bachelor of Veterinary Science - Bangalore Veterinary College",
-      "Advanced Certification in Veterinary Dentistry"
-    ],
-    "image": "/images/doctor_images/doctoricon7.png",
-    "email": "dr.suresh@lifecarepetclinic.com",
-    "phone": "+91 90879 90819"
-  },
-  {
-    "id": "dr-anjali-gupta",
-    "name": "Dr. Anjali Gupta",
-    "title": "Veterinary Ophthalmologist",
-    "specialization": "Ophthalmology",
-    "qualifications": "BVSc, MVSc (Ophthalmology)",
-    "experience": 6,
-    "bio": "Dr. Anjali Gupta specializes in diagnosing and treating eye conditions in pets. Her precision and care in handling delicate eye surgeries have restored vision to many pets. She's dedicated to preserving and improving pet eye health.",
-    "education": [
-      "Bachelor of Veterinary Science - Ludhiana Veterinary College",
-      "Master of Veterinary Science (Ophthalmology)"
-    ],
-    "image": "/images/doctor_images/doctoricon8.png",
-    "email": "dr.anjali@lifecarepetclinic.com",
-    "phone": "+91 90879 90819"
+    "id": "dr-p-mohanraj",
+    "name": "Dr. P. Mohanraj",
+    "title": "Avian & Exotic Wing Specialist",
+    "specialization": "Avian & Exotic Veterinary Care",
+    "qualifications": "BVSc",
+    "bio": "Dr. P. Mohanraj provides focused care for avian and exotic pets, offering consultation and treatment tailored to birds and other specialty species.",
+    "image": "/images/doctor_images/doctoricon6.png"
   }
 ]

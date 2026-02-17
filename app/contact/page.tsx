@@ -11,23 +11,23 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { PawButton, CreativeMapSection } from '@/components/custom';
 import { FloatingElements } from '@/components/custom/FloatingElements';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 import clinicInfo from '@/data/clinic-info.json';
+import services from '@/data/services.json';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Invalid email address'),
   phone: z.string().min(10, 'Phone number must be at least 10 digits'),
   petType: z.string().min(1, 'Please select a pet type'),
+  service: z.string().optional(),
   appointmentDate: z.string().min(1, 'Please select an appointment date'),
   appointmentTime: z.string().min(1, 'Please select an appointment time'),
   subject: z.string().min(5, 'Subject must be at least 5 characters'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
-  contactMethod: z.enum(['email', 'phone']),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -44,9 +44,6 @@ export default function ContactPage() {
     setValue,
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      contactMethod: 'email',
-    },
   });
 
   const onSubmit = async (data: ContactFormValues) => {
@@ -59,11 +56,11 @@ export default function ContactPage() {
         email: data.email,
         phoneNumber: data.phone,
         petType: data.petType,
+        service: data.service || '',
         appointmentDate: data.appointmentDate,
         appointmentTime: data.appointmentTime,
         subject: data.subject,
         message: data.message,
-        contactMethod: data.contactMethod,
       };
 
       const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
@@ -97,7 +94,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-[#F5F7FA] via-white to-[#F5F7FA] overflow-hidden">
         <FloatingElements count={15} className="absolute inset-0 opacity-5">
@@ -143,9 +140,9 @@ export default function ContactPage() {
               },
               {
                 icon: Phone,
-                title: 'Call Us',
-                content: clinicInfo.contact.phone,
-                link: `tel:${clinicInfo.contact.phone}`,
+                title: 'Call Reception',
+                content: clinicInfo.contact.reception,
+                link: `tel:${clinicInfo.contact.reception}`,
                 color: 'from-[#FDB913] to-[#e5a40f]',
               },
               {
@@ -171,25 +168,37 @@ export default function ContactPage() {
               >
                 <Card className="h-full glass border-none hover:shadow-2xl transition-all duration-300 group">
                   <CardContent className="p-6 text-center">
-                    <motion.div
-                      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
-                      whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <item.icon className="w-8 h-8 text-white" />
-                    </motion.div>
-                    <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                     {item.link ? (
                       <a
                         href={item.link}
-                        className="text-sm text-gray-600 hover:text-[#FF6B7A] transition-colors"
+                        className="block"
                         target={item.icon === MapPin ? '_blank' : undefined}
                         rel={item.icon === MapPin ? 'noopener noreferrer' : undefined}
                       >
-                        {item.content}
+                        <motion.div
+                          className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 cursor-pointer`}
+                          whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <item.icon className="w-8 h-8 text-white" />
+                        </motion.div>
+                        <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                        <p className="text-sm text-gray-600 hover:text-[#FF6B7A] transition-colors">
+                          {item.content}
+                        </p>
                       </a>
                     ) : (
-                      <p className="text-sm text-gray-600">{item.content}</p>
+                      <>
+                        <motion.div
+                          className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                          whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <item.icon className="w-8 h-8 text-white" />
+                        </motion.div>
+                        <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                        <p className="text-sm text-gray-600">{item.content}</p>
+                      </>
                     )}
                   </CardContent>
                 </Card>
@@ -202,7 +211,9 @@ export default function ContactPage() {
       {/* Contact Form and Map */}
       <section className="py-20 bg-gradient-to-br from-[#F5F7FA] to-white">
         <div className="container mx-auto px-4">
-          <Badge className="bg-[#FF6B7A] text-white mb-8 px-6 py-2">Send us a message & find us</Badge>
+          <div className="text-center">
+            <Badge className="bg-[#FF6B7A] text-white mb-8 px-6 py-2">Send us a message & find us</Badge>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
             We'd Love to Hear from You
           </h2>
@@ -289,7 +300,7 @@ export default function ContactPage() {
                         id="name"
                         {...register('name')}
                         className="mt-2"
-                        placeholder="John Doe"
+                        placeholder="Full Name"
                       />
                       {errors.name && (
                         <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
@@ -305,7 +316,7 @@ export default function ContactPage() {
                           type="email"
                           {...register('email')}
                           className="mt-2"
-                          placeholder="john@example.com"
+                          placeholder="name@example.com"
                         />
                         {errors.email && (
                           <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
@@ -326,25 +337,42 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    {/* Pet Type */}
-                    <div>
-                      <Label htmlFor="petType">Pet Type *</Label>
-                      <Select onValueChange={(value) => setValue('petType', value)}>
-                        <SelectTrigger className="mt-2">
-                          <SelectValue placeholder="Select pet type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="dog">Dog</SelectItem>
-                          <SelectItem value="cat">Cat</SelectItem>
-                          <SelectItem value="bird">Bird</SelectItem>
-                          <SelectItem value="rabbit">Rabbit</SelectItem>
-                          <SelectItem value="exotic">Exotic Pet</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      {errors.petType && (
-                        <p className="text-sm text-red-500 mt-1">{errors.petType.message}</p>
-                      )}
+                    {/* Pet Type and Service */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="petType">Pet Type *</Label>
+                        <Select onValueChange={(value) => setValue('petType', value)}>
+                          <SelectTrigger className="mt-2">
+                            <SelectValue placeholder="Select pet type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="dog">Dog</SelectItem>
+                            <SelectItem value="cat">Cat</SelectItem>
+                            <SelectItem value="bird">Bird</SelectItem>
+                            <SelectItem value="rabbit">Rabbit</SelectItem>
+                            <SelectItem value="exotic">Exotic Pet</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        {errors.petType && (
+                          <p className="text-sm text-red-500 mt-1">{errors.petType.message}</p>
+                        )}
+                      </div>
+                      <div>
+                        <Label htmlFor="service">Select Service</Label>
+                        <Select onValueChange={(value) => setValue('service', value)}>
+                          <SelectTrigger className="mt-2">
+                            <SelectValue placeholder="Select a service" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {services.map((service) => (
+                              <SelectItem key={service.id} value={service.name}>
+                                {service.name}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
                     </div>
 
                     {/* Appointment Date and Time */}
@@ -404,25 +432,6 @@ export default function ContactPage() {
                       )}
                     </div>
 
-                    {/* Preferred Contact Method */}
-                    <div>
-                      <Label>Preferred Contact Method *</Label>
-                      <RadioGroup
-                        defaultValue="email"
-                        onValueChange={(value) => setValue('contactMethod', value as 'email' | 'phone')}
-                        className="flex gap-4 mt-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="email" id="email-method" />
-                          <Label htmlFor="email-method" className="cursor-pointer">Email</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="phone" id="phone-method" />
-                          <Label htmlFor="phone-method" className="cursor-pointer">Phone</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
                     {/* Submit Button */}
                     <Button
                       type="submit"
@@ -475,108 +484,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Contact Info Cards - Below Form and Map */}
-          <motion.div
-            className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mt-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Dog Tag Styled Location Card */}
-            <motion.div
-              whileHover={{ scale: 1.03, rotate: -2 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Card className="relative overflow-hidden border-4 border-[#FF6B7A] bg-gradient-to-br from-white to-[#FFE5E8]">
-                {/* Dog Tag Hole */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-10 h-10 bg-white rounded-full border-4 border-[#FF6B7A] shadow-lg" />
-
-                <CardContent className="pt-10 pb-6">
-                  <div className="text-center">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF6B7A] to-[#e55566] flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <MapPin className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Find Us Here</h3>
-                    <p className="text-sm text-gray-700 leading-relaxed">
-                      {clinicInfo.address.street}, {clinicInfo.address.area}, {clinicInfo.address.city}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Cat Bowl Styled Hours Card */}
-            <motion.div
-              whileHover={{ scale: 1.03, rotate: 2 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Card className="relative overflow-hidden border-4 border-[#FDB913] bg-gradient-to-br from-white to-[#FFF4D6]">
-                {/* Bowl Rim Effect */}
-                <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#FDB913] via-[#e5a40f] to-[#FDB913]" />
-
-                <CardContent className="pt-8 pb-6">
-                  <div className="text-center">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FDB913] to-[#e5a40f] flex items-center justify-center mx-auto mb-4 shadow-lg relative">
-                      <Clock className="w-8 h-8 text-white" />
-                      {/* Clock hands animation */}
-                      <motion.div
-                        className="absolute inset-0 flex items-center justify-center"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                      >
-                        <div className="w-1 h-4 bg-white/50 rounded-full" />
-                      </motion.div>
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Always Open</h3>
-                    <p className="text-sm text-gray-700 leading-relaxed font-semibold">
-                      {clinicInfo.hours.weekdays}
-                    </p>
-                    <p className="text-sm text-[#FF6B7A] font-bold mt-1">
-                      {clinicInfo.hours.emergency}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Phone Bone Styled Card */}
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Card className="relative overflow-hidden border-4 border-[#7B4397] bg-gradient-to-br from-white to-[#E9D5FF]">
-                {/* Bone Shape Decoration */}
-                <div className="absolute -top-1 -right-1 w-16 h-16 opacity-10">
-                  <svg viewBox="0 0 100 50" fill="#7B4397">
-                    <ellipse cx="15" cy="25" rx="15" ry="12" />
-                    <rect x="15" y="20" width="70" height="10" />
-                    <ellipse cx="85" cy="25" rx="15" ry="12" />
-                  </svg>
-                </div>
-
-                <CardContent className="pt-6 pb-6">
-                  <div className="text-center">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7B4397] to-[#663380] flex items-center justify-center mx-auto mb-4 shadow-lg"
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <Phone className="w-8 h-8 text-white" />
-                    </motion.div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Call Anytime</h3>
-                    <a
-                      href={`tel:${clinicInfo.contact.phone}`}
-                      className="text-xl font-bold text-[#7B4397] hover:text-[#663380] transition-colors block"
-                    >
-                      {clinicInfo.contact.phone}
-                    </a>
-                    <p className="text-xs text-gray-600 mt-1">Emergency? We're ready!</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
         </div>
       </section>
 
@@ -596,16 +503,16 @@ export default function ContactPage() {
               Need Immediate Assistance?
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              For pet emergencies, call us immediately. Our 24/7 emergency team is always ready to help.
+              For pet emergencies, call our ambulance service immediately. Our 24/7 emergency team is always ready to help.
             </p>
             <motion.a
-              href={`tel:${clinicInfo.contact.emergencyPhone}`}
+              href={`tel:${clinicInfo.contact.ambulance}`}
               className="inline-flex items-center gap-3 bg-white text-[#FDB913] px-8 py-4 rounded-full text-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Phone className="w-8 h-8" />
-              {clinicInfo.contact.emergencyPhone}
+              {clinicInfo.contact.ambulance}
             </motion.a>
           </motion.div>
         </div>

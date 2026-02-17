@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Ambulance } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import clinicInfo from '@/data/clinic-info.json';
@@ -35,19 +35,19 @@ export const Header: React.FC = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'glass shadow-lg py-3' : 'bg-transparent py-5'
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 overflow-x-hidden ${
+        isScrolled ? 'bg-white shadow-lg py-3' : 'bg-transparent py-5'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
+      <div className="w-full px-3 md:px-4 max-w-7xl mx-auto">
+        <div className="flex items-center justify-between gap-3 w-full">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
             <motion.div
-              className="relative w-12 h-12 flex-shrink-0"
+              className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
                 priority
               />
             </motion.div>
-            <div className="hidden md:block">
+            <div className="hidden xl:block">
               <h1 className="text-xl font-bold text-gray-900">
                 {clinicInfo.name.split(' ').slice(0, 2).join(' ')}
               </h1>
@@ -71,7 +71,7 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-baseline gap-6 xl:gap-8">
             {navLinks.map((link, index) => {
               const isActive = pathname === link.href;
               return (
@@ -83,11 +83,11 @@ export const Header: React.FC = () => {
                 >
                   <Link
                     href={link.href}
-                    className={`font-medium transition-colors duration-300 relative group ${
+                    className={`font-medium transition-colors duration-300 relative inline-block whitespace-nowrap leading-none ${
                       isActive ? 'text-[#FF6B7A]' : 'text-gray-700 hover:text-[#FF6B7A]'
                     }`}
                   >
-                    {link.name}
+                    <span className="inline-block">{link.name}</span>
                     <span
                       className={`absolute bottom-0 left-0 h-0.5 bg-[#FF6B7A] transition-all duration-300 ${
                         isActive ? 'w-full' : 'w-0 group-hover:w-full'
@@ -99,33 +99,54 @@ export const Header: React.FC = () => {
             })}
           </nav>
 
-          {/* Call Button */}
-          <motion.div
-            className="hidden md:block"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button
-              asChild
-              className="bg-[#FDB913] hover:bg-[#e5a40f] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-shake"
-              style={{ animationIterationCount: 'infinite', animationDuration: '3s' }}
+          {/* Call Buttons */}
+          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <a href={`tel:${clinicInfo.contact.phone}`} className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span className="font-semibold">Call Us</span>
-              </a>
-            </Button>
-          </motion.div>
+              <Button
+                asChild
+                className="bg-[#FF6B7A] hover:bg-[#e55566] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-shake"
+                style={{ animationIterationCount: 'infinite', animationDuration: '3s', animationDelay: '1.5s' }}
+              >
+                <a href={`tel:${clinicInfo.contact.reception}`} className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  <span className="font-semibold">Reception</span>
+                </a>
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                asChild
+                className="bg-[#FDB913] hover:bg-[#e5a40f] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-shake"
+                style={{ animationIterationCount: 'infinite', animationDuration: '3s' }}
+              >
+                <a href={`tel:${clinicInfo.contact.ambulance}`} className="flex items-center gap-2">
+                  <Ambulance className="w-4 h-4" />
+                  <span className="font-semibold">Ambulance</span>
+                </a>
+              </Button>
+            </motion.div>
+          </div>
 
           {/* Mobile Menu Button */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden">
-                <Menu className="w-6 h-6" />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden flex-shrink-0 hover:bg-gray-100 text-gray-900 border border-gray-300"
+              >
+                <Menu className="w-6 h-6 text-gray-900" />
+                <span className="sr-only">Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col gap-6 mt-8">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] flex flex-col">
+              <nav className="flex flex-col gap-6 mt-8 flex-1 overflow-y-auto pb-6">
                 <div className="mb-4 text-center">
                   <SheetTitle className="text-2xl font-bold text-gray-900 mb-2">
                     {clinicInfo.name.split(' ').slice(0, 2).join(' ')}
@@ -162,17 +183,29 @@ export const Header: React.FC = () => {
                     </motion.div>
                   );
                 })}
+              </nav>
 
+              {/* Fixed Call Buttons at Bottom */}
+              <div className="flex flex-col gap-3 px-4 pb-6 pt-4 border-t border-gray-200 bg-white">
                 <Button
                   asChild
-                  className="bg-[#FDB913] hover:bg-[#e5a40f] text-white rounded-full shadow-lg mt-4"
+                  className="w-full bg-[#FF6B7A] hover:bg-[#e55566] text-white rounded-full shadow-lg"
                 >
-                  <a href={`tel:${clinicInfo.contact.phone}`} className="flex items-center gap-2 justify-center">
+                  <a href={`tel:${clinicInfo.contact.reception}`} className="flex items-center gap-2 justify-center">
                     <Phone className="w-4 h-4" />
-                    <span className="font-semibold">Call Us Now</span>
+                    <span className="font-semibold">Call Reception</span>
                   </a>
                 </Button>
-              </nav>
+                <Button
+                  asChild
+                  className="w-full bg-[#FDB913] hover:bg-[#e5a40f] text-white rounded-full shadow-lg"
+                >
+                  <a href={`tel:${clinicInfo.contact.ambulance}`} className="flex items-center gap-2 justify-center">
+                    <Ambulance className="w-4 h-4" />
+                    <span className="font-semibold">Call Ambulance</span>
+                  </a>
+                </Button>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

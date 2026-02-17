@@ -45,11 +45,11 @@ export const FloatingActionButtons: React.FC = () => {
               asChild
               className="w-16 h-16 rounded-full bg-gradient-to-br from-[#FDB913] to-[#e5a40f] hover:from-[#e5a40f] hover:to-[#FDB913] shadow-2xl border-4 border-white relative group"
             >
-              <a href={`tel:${clinicInfo.contact.emergencyPhone}`}>
+              <a href={`tel:${clinicInfo.contact.ambulance}`}>
                 <Phone className="w-6 h-6 text-white" />
                 {/* Tooltip */}
                 <span className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Emergency? Call Now!
+                  Call Ambulance!
                 </span>
               </a>
             </Button>
@@ -75,7 +75,7 @@ export const FloatingActionButtons: React.FC = () => {
             className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20BD5A] shadow-2xl border-4 border-white relative group"
           >
             <a
-              href={`https://wa.me/${clinicInfo.contact.whatsapp.replace(/[^0-9]/g, '')}`}
+              href={`https://wa.me/${clinicInfo.contact.reception.replace(/[^0-9]/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
             >

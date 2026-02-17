@@ -24,13 +24,37 @@ export const FloatingElements: React.FC<FloatingElementsProps> = ({
   const [elements, setElements] = useState<FloatingElement[]>([]);
 
   useEffect(() => {
-    // Generate random positions only on client side
-    const newElements = Array.from({ length: count }, () => ({
-      left: Math.random() * 100,
-      top: Math.random() * 100,
-      duration: 4 + Math.random() * 2,
-      delay: Math.random() * 2,
-    }));
+    // Generate well-distributed positions using grid-based approach
+    const newElements: FloatingElement[] = [];
+
+    // Calculate grid dimensions
+    const cols = Math.ceil(Math.sqrt(count * 1.5));
+    const rows = Math.ceil(count / cols);
+    const cellWidth = 100 / cols;
+    const cellHeight = 100 / rows;
+
+    // Generate positions with grid-based distribution
+    for (let i = 0; i < count; i++) {
+      const col = i % cols;
+      const row = Math.floor(i / cols);
+
+      // Position within cell with random offset
+      const baseLft = col * cellWidth + cellWidth / 2;
+      const baseTop = row * cellHeight + cellHeight / 2;
+
+      // Add random offset within cell (but keep some margin)
+      const offsetRange = Math.min(cellWidth, cellHeight) * 0.4;
+      const left = baseLft + (Math.random() - 0.5) * offsetRange;
+      const top = baseTop + (Math.random() - 0.5) * offsetRange;
+
+      newElements.push({
+        left: Math.max(5, Math.min(95, left)), // Keep within bounds
+        top: Math.max(5, Math.min(95, top)),
+        duration: 4 + Math.random() * 3,
+        delay: Math.random() * 2,
+      });
+    }
+
     setElements(newElements);
   }, [count]);
 

@@ -7,8 +7,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { PawButton, CreativeServiceCard, BoneButton } from '@/components/custom';
 import { FloatingElements } from '@/components/custom/FloatingElements';
-import { CheckCircle2, Phone } from 'lucide-react';
+import { CheckCircle2, Phone, Dog, Cat, Bird, Footprints } from 'lucide-react';
 import services from '@/data/services.json';
+import clinicInfo from '@/data/clinic-info.json';
 
 export default function ServicesPage() {
   const categories = ['All', ...Array.from(new Set(services.map(s => s.category)))];
@@ -93,96 +94,14 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Detailed Services */}
-      <section className="py-20 bg-gradient-to-br from-[#F5F7FA] to-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Badge className="bg-[#FF6B7A] text-white mb-4">Service Details</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              What to Expect
-            </h2>
-          </motion.div>
-
-          <div className="space-y-12 max-w-6xl mx-auto">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.id}
-                id={service.id}
-                className="scroll-mt-24"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-              >
-                <Card className="glass border-none overflow-hidden">
-                  <CardContent className="p-0">
-                    <div className="grid md:grid-cols-2 gap-0">
-                      {/* Left side - Service Info */}
-                      <div className="p-8 md:p-12">
-                        <Badge className="bg-[#FF6B7A] text-white mb-4">{service.category}</Badge>
-                        <h3 className="text-3xl font-bold text-gray-900 mb-4">{service.name}</h3>
-                        <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-
-                        {/* Features */}
-                        <h4 className="font-semibold text-gray-900 mb-4">What's Included:</h4>
-                        <ul className="space-y-3 mb-8">
-                          {service.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-3">
-                              <CheckCircle2 className="w-5 h-5 text-[#7B4397] flex-shrink-0 mt-0.5" />
-                              <span className="text-gray-700">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <PawButton variant="primary" size="md" href="/contact">
-                          Book This Service
-                        </PawButton>
-                      </div>
-
-                      {/* Right side - Visual */}
-                      <div className="relative bg-gradient-to-br from-[#FF6B7A] to-[#e55566] p-12 flex items-center justify-center">
-                        <motion.div
-                          className="text-white text-center"
-                          animate={{ y: [0, -10, 0] }}
-                          transition={{ duration: 3, repeat: Infinity }}
-                        >
-                          <svg
-                            className="w-32 h-32 mx-auto mb-6 opacity-80"
-                            viewBox="0 0 24 24"
-                            fill="white"
-                          >
-                            <circle cx="12" cy="8" r="2.5" />
-                            <circle cx="7" cy="12" r="2" />
-                            <circle cx="17" cy="12" r="2" />
-                            <ellipse cx="12" cy="17" rx="4" ry="5" />
-                          </svg>
-                          <p className="text-2xl font-bold mb-2">{service.name}</p>
-                          <p className="text-white/80">Expert Care for Your Pet</p>
-                        </motion.div>
-
-                        {/* Decorative elements */}
-                        <div className="absolute top-4 right-4 w-20 h-20 border-4 border-white/20 rounded-full" />
-                        <div className="absolute bottom-4 left-4 w-16 h-16 border-4 border-white/20 rounded-full" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-[#FDB913] to-[#e5a40f] relative overflow-hidden">
-        <FloatingElements count={10}>
-          {() => <Phone className="w-16 h-16 text-white" />}
+        <FloatingElements count={20}>
+          {(index) => {
+            const icons = [Dog, Cat, Bird, Footprints];
+            const Icon = icons[index % icons.length];
+            return <Icon className="w-12 h-12 text-white" />;
+          }}
         </FloatingElements>
 
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -201,23 +120,23 @@ export default function ServicesPage() {
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
               Our expert team is here to help. Call us or book a consultation to discuss your pet's specific needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.a
                 href="/contact"
-                className="inline-flex items-center gap-3 bg-white text-[#FDB913] px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:shadow-3xl transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 bg-white text-[#FDB913] px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Book Consultation
               </motion.a>
               <motion.a
-                href="tel:+919087990819"
-                className="inline-flex items-center gap-3 bg-white text-[#FDB913] px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:shadow-3xl transition-all duration-300"
+                href={`tel:${clinicInfo.contact.reception}`}
+                className="inline-flex items-center justify-center gap-3 bg-white text-[#FDB913] px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Phone className="w-5 h-5" />
-                Call Now
+                Call Reception
               </motion.a>
             </div>
           </motion.div>

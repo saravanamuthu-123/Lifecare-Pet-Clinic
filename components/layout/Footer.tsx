@@ -147,14 +147,28 @@ export const Footer: React.FC = () => {
                   {clinicInfo.address.city} {clinicInfo.address.pincode}
                 </span>
               </li>
-              <li className="flex items-center gap-3 text-sm">
-                <Phone className="w-5 h-5 text-[#FF6B7A] flex-shrink-0" />
-                <a
-                  href={`tel:${clinicInfo.contact.phone}`}
-                  className="text-gray-400 hover:text-[#FF6B7A] transition-colors"
-                >
-                  {clinicInfo.contact.phone}
-                </a>
+              <li className="flex items-start gap-3 text-sm">
+                <Phone className="w-5 h-5 text-[#FF6B7A] flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a
+                    href={`tel:${clinicInfo.contact.reception}`}
+                    className="text-gray-400 hover:text-[#FF6B7A] transition-colors"
+                  >
+                    Reception: {clinicInfo.contact.reception}
+                  </a>
+                  <a
+                    href={`tel:${clinicInfo.contact.ambulance}`}
+                    className="text-gray-400 hover:text-[#FF6B7A] transition-colors"
+                  >
+                    Ambulance: {clinicInfo.contact.ambulance}
+                  </a>
+                  <a
+                    href={`tel:${clinicInfo.contact.office}`}
+                    className="text-gray-400 hover:text-[#FF6B7A] transition-colors"
+                  >
+                    Office: {clinicInfo.contact.office}
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail className="w-5 h-5 text-[#FF6B7A] flex-shrink-0" />

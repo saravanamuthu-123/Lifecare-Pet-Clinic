@@ -27,10 +27,11 @@
     "mapLinkShort": "https://maps.app.goo.gl/FCN9StSahZebzHbi6"
   },
   "contact": {
-    "phone": "+91 90879 90819",
-    "emergencyPhone": "+91 90879 90819",
+    "reception": "+91 93428 93438",
+    "ambulance": "+91 93429 93439",
+    "office": "+91 93424 93434",
     "email": "info@lifecarepetclinic.com",
-    "whatsapp": "+91 90879 90819"
+    "whatsapp": "+91 93428 93438"
   },
   "hours": {
     "weekdays": "Mon - Sun | 24 hours",
@@ -44,9 +45,9 @@
   },
   "stats": {
     "yearsOfExperience": 10,
-    "vets": 8,
-    "successfulTreatments": 15000,
-    "happyClients": 5000
+    "vets": 7,
+    "successfulTreatments": 1000,
+    "happyClients": 500
   },
   "facilities": [
     {

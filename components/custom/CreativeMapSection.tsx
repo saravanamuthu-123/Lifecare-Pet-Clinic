@@ -154,6 +154,24 @@ export const CreativeMapSection: React.FC = () => {
           </div>
         </div>
 
+        {/* View Larger Map Button */}
+        <div className="mt-6 flex justify-center">
+          <motion.a
+            href={clinicInfo.location.mapLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#FF6B7A] text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            View Larger Map
+          </motion.a>
+        </div>
+
         {/* Decorative Paw Prints Trail */}
         {[...Array(5)].map((_, i) => (
           <motion.div

@@ -7,6 +7,7 @@ import { DoctorCard } from '@/components/custom';
 import { FloatingElements } from '@/components/custom/FloatingElements';
 import { Users, Award, Heart } from 'lucide-react';
 import team from '@/data/team.json';
+import clinicInfo from '@/data/clinic-info.json';
 
 export default function TeamPage() {
   return (
@@ -40,10 +41,9 @@ export default function TeamPage() {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mt-12">
               {[
                 { icon: Users, label: 'Expert Vets', value: `${team.length}+` },
-                { icon: Award, label: 'Combined Experience', value: `${team.reduce((sum, doc) => sum + doc.experience, 0)}+ Years` },
                 { icon: Heart, label: 'Specializations', value: `${new Set(team.map(d => d.specialization)).size}+` },
               ].map((stat, index) => (
                 <motion.div
@@ -78,7 +78,7 @@ export default function TeamPage() {
               Your Pet's Health in Expert Hands
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Each member of our team brings unique expertise and a shared passion for animal care. Click on any profile to learn more about our veterinarians.
+              Each member of our team brings unique expertise and a shared passion for animal care.
             </p>
           </motion.div>
 
@@ -216,12 +216,12 @@ export default function TeamPage() {
                 Book Appointment
               </motion.a>
               <motion.a
-                href="tel:+919087990819"
+                href={`tel:${clinicInfo.contact.reception}`}
                 className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Call Us
+                Call Reception
               </motion.a>
             </div>
           </motion.div>

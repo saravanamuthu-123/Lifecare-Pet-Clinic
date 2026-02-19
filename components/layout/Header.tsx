@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone, Ambulance } from 'lucide-react';
+import { Menu, X, Phone, Ambulance, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import clinicInfo from '@/data/clinic-info.json';
@@ -47,15 +47,15 @@ export const Header: React.FC = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
             <motion.div
-              className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0"
+              className="relative w-12 h-12 md:w-14 md:h-14 flex-shrink-0"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               <Image
                 src="/images/logo.svg"
                 alt="Lifecare Pet Specialty Clinic Logo"
-                width={48}
-                height={48}
+                width={56}
+                height={56}
                 className="object-contain"
                 priority
               />
@@ -69,6 +69,16 @@ export const Header: React.FC = () => {
               </p>
             </div>
           </Link>
+
+          {/* Center - Clinic Name (Mobile/Tablet) */}
+          <div className="flex-1 lg:hidden flex flex-col items-center justify-center text-center px-2">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 leading-tight">
+              Lifecare Pet
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-[#FF6B7A] font-semibold leading-tight">
+              Healing Paws, Happy Hearts
+            </p>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-baseline gap-6 xl:gap-8">
@@ -147,7 +157,16 @@ export const Header: React.FC = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] flex flex-col">
               <nav className="flex flex-col gap-6 mt-8 flex-1 overflow-y-auto pb-6">
-                <div className="mb-4 text-center">
+                <div className="mb-4 text-center flex flex-col items-center">
+                  <div className="relative w-16 h-16 mb-3">
+                    <Image
+                      src="/images/logo.svg"
+                      alt="Lifecare Pet Specialty Clinic Logo"
+                      width={64}
+                      height={64}
+                      className="object-contain"
+                    />
+                  </div>
                   <SheetTitle className="text-2xl font-bold text-gray-900 mb-2">
                     {clinicInfo.name.split(' ').slice(0, 2).join(' ')}
                   </SheetTitle>

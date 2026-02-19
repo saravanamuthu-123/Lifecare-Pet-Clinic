@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -46,6 +46,28 @@ export default function ContactPage() {
     resolver: zodResolver(contactFormSchema),
   });
 
+  // Scroll to form when page loads with hash
+  useEffect(() => {
+    if (window.location.hash === '#appointment-form') {
+      const formElement = document.getElementById('appointment-form');
+      if (formElement) {
+        // Small delay to ensure page is fully rendered
+        setTimeout(() => {
+          formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, []);
+
+  // Convert 24-hour time format to 12-hour format with AM/PM
+  const convertTo12HourFormat = (time24: string): string => {
+    const [hours, minutes] = time24.split(':');
+    const hour = parseInt(hours, 10);
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const hour12 = hour % 12 || 12;
+    return `${hour12}:${minutes} ${ampm}`;
+  };
+
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
 
@@ -58,7 +80,7 @@ export default function ContactPage() {
         petType: data.petType,
         service: data.service || '',
         appointmentDate: data.appointmentDate,
-        appointmentTime: data.appointmentTime,
+        appointmentTime: convertTo12HourFormat(data.appointmentTime),
         subject: data.subject,
         message: data.message,
       };
@@ -209,7 +231,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form and Map */}
-      <section className="py-20 bg-gradient-to-br from-[#F5F7FA] to-white">
+      <section id="appointment-form" className="py-20 bg-gradient-to-br from-[#F5F7FA] to-white scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <Badge className="bg-[#FF6B7A] text-white mb-8 px-6 py-2">Send us a message & find us</Badge>

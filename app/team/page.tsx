@@ -208,7 +208,7 @@ export default function TeamPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="/contact"
+                href="/contact#appointment-form"
                 className="inline-flex items-center justify-center gap-2 bg-white text-[#FF6B7A] px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:shadow-3xl transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

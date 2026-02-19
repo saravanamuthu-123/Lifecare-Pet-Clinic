@@ -274,7 +274,7 @@ export default function AboutPage() {
               Schedule an appointment with our expert veterinarians today and experience the difference compassionate care makes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <PawButton variant="primary" size="lg" href="/contact">
+              <PawButton variant="primary" size="lg" href="/contact#appointment-form">
                 Book Appointment
               </PawButton>
               <PawButton variant="outline" size="lg" href="/team">

@@ -200,7 +200,7 @@ export default function Home() {
                     whileHover={{ scale: 1.05, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <PawButton variant="primary" size="lg" href="/contact">
+                    <PawButton variant="primary" size="lg" href="/contact#appointment-form">
                       Book Appointment
                     </PawButton>
                   </motion.div>

@@ -24,10 +24,10 @@ const galleryImages = [
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80',
-    alt: 'Veterinary Checkup',
+    src: '/images/clinic_images/img-1.jpg',
+    alt: 'Our Modern Veterinary Clinic',
     category: 'clinic',
-    size: 'medium',
+    size: 'large',
   },
   {
     id: 4,
@@ -52,8 +52,8 @@ const galleryImages = [
   },
   {
     id: 7,
-    src: 'https://images.unsplash.com/photo-1581888227599-779811939961?w=800&q=80',
-    alt: 'Veterinary Surgery',
+    src: '/images/clinic_images/img-2.jpg',
+    alt: 'State-of-the-Art Medical Equipment',
     category: 'clinic',
     size: 'medium',
   },
@@ -73,8 +73,8 @@ const galleryImages = [
   },
   {
     id: 10,
-    src: 'https://images.unsplash.com/photo-1559190394-df5a28aab5c5?w=800&q=80',
-    alt: 'Medical Equipment',
+    src: '/images/clinic_images/img-3.jpg',
+    alt: 'Advanced Diagnostic Center',
     category: 'clinic',
     size: 'medium',
   },
@@ -94,10 +94,10 @@ const galleryImages = [
   },
   {
     id: 13,
-    src: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800&q=80',
-    alt: 'Veterinary Care',
+    src: '/images/clinic_images/img-4.jpg',
+    alt: 'Comfortable Examination Room',
     category: 'clinic',
-    size: 'large',
+    size: 'medium',
   },
   {
     id: 14,
@@ -118,6 +118,27 @@ const galleryImages = [
     src: 'https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=800&q=80',
     alt: 'White Cat',
     category: 'cats',
+    size: 'medium',
+  },
+  {
+    id: 17,
+    src: '/images/clinic_images/img-5.jpg',
+    alt: 'Pet Surgery Suite',
+    category: 'clinic',
+    size: 'large',
+  },
+  {
+    id: 18,
+    src: '/images/clinic_images/img-6.jpg',
+    alt: 'Veterinary Care Facility',
+    category: 'clinic',
+    size: 'medium',
+  },
+  {
+    id: 19,
+    src: '/images/clinic_images/img-7.jpg',
+    alt: 'Professional Treatment Area',
+    category: 'clinic',
     size: 'medium',
   },
 ];

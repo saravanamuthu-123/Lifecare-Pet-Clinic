@@ -261,7 +261,7 @@ export const CreativeServiceCard: React.FC<CreativeServiceCardProps> = ({
               </ul>
 
               <motion.a
-                href="/contact"
+                href="/contact#appointment-form"
                 className="inline-block px-6 py-2 rounded-full text-white font-semibold text-sm shadow-lg hover:shadow-xl transition-all mt-auto"
                 style={{ background: `linear-gradient(135deg, ${colorTheme.accent}, ${colorTheme.accent}dd)` }}
                 whileHover={{ scale: 1.05 }}

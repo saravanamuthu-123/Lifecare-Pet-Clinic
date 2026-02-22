@@ -47,37 +47,42 @@ export const Header: React.FC = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
             <motion.div
-              className="relative w-12 h-12 md:w-14 md:h-14 flex-shrink-0"
+              className="relative w-12 h-12 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
+              style={{ marginTop: '2px' }}
             >
               <Image
                 src="/images/logo.svg"
                 alt="Lifecare Pet Specialty Clinic Logo"
-                width={56}
-                height={56}
+                width={64}
+                height={64}
                 className="object-contain"
                 priority
               />
             </motion.div>
             <div className="hidden xl:block">
-              <h1 className="text-xl font-bold text-gray-900">
-                {clinicInfo.name.split(' ').slice(0, 2).join(' ')}
-              </h1>
-              <p className="text-xs text-[#FF6B7A] font-semibold">
-                {clinicInfo.tagline}
-              </p>
+              <Image
+                src="/images/logo-text.svg"
+                alt="Lifecare Pet - Healing Paws, Happy Hearts"
+                width={150}
+                height={40}
+                className="object-contain"
+                priority
+              />
             </div>
           </Link>
 
           {/* Center - Clinic Name (Mobile/Tablet) */}
-          <div className="flex-1 lg:hidden flex flex-col items-center justify-center text-center px-2">
-            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 leading-tight">
-              Lifecare Pet
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-[#FF6B7A] font-semibold leading-tight">
-              Healing Paws, Happy Hearts
-            </p>
+          <div className="flex-1 lg:hidden flex items-center justify-center px-2">
+            <Image
+              src="/images/logo-text.svg"
+              alt="Lifecare Pet - Healing Paws, Happy Hearts"
+              width={160}
+              height={40}
+              className="object-contain"
+              priority
+            />
           </div>
 
           {/* Desktop Navigation */}

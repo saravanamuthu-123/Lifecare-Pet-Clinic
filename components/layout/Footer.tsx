@@ -37,20 +37,23 @@ export const Footer: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-12 h-12 flex-shrink-0">
+              <div className="relative w-16 h-16 flex-shrink-0 flex items-center justify-center">
                 <Image
                   src="/images/logo.svg"
                   alt="Lifecare Pet Specialty Clinic Logo"
-                  width={48}
-                  height={48}
+                  width={64}
+                  height={64}
                   className="object-contain"
                 />
               </div>
-              <div>
-                <h3 className="text-lg font-bold">
-                  {clinicInfo.name.split(' ').slice(0, 2).join(' ')}
-                </h3>
-                <p className="text-sm text-[#FDB913]">{clinicInfo.tagline}</p>
+              <div className="flex items-center">
+                <Image
+                  src="/images/logo-text.svg"
+                  alt="Lifecare Pet - Healing Paws, Happy Hearts"
+                  width={150}
+                  height={40}
+                  className="object-contain"
+                />
               </div>
             </div>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">

@@ -69,7 +69,7 @@ export default function Home() {
         </div>
 
         {/* Floating Pet Image Frames - Left Side Only */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none hidden 2xl:block z-10">
           {/* Top Left Pet - Made Smaller */}
           <motion.div
             className="absolute top-36 left-12 w-24 h-24 rounded-full bg-white shadow-2xl p-2 border-4 border-[#FDB913]"
@@ -125,13 +125,13 @@ export default function Home() {
               <div className="text-center lg:text-left order-1 lg:order-1">
                 {/* Trust Indicators */}
                 <motion.div
-                  className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10"
+                  className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10 relative z-30"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                 >
               {[
-                { icon: Clock, text: '24/7 Emergency' },
+                { icon: Activity, text: 'ICU Equipped' },
                 { icon: Award, text: `${clinicInfo.stats.yearsOfExperience}+ Years Experience` },
                 { icon: Shield, text: 'Modern Facilities' },
               ].map((item, index) => (
@@ -469,7 +469,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: '24/7 Emergency Care',
+                title: 'ICU Equipped',
                 description: 'Round-the-clock emergency services with ICU facilities for critical cases.',
                 icon: Clock,
                 color: 'from-[#FDB913] to-[#e5a40f]',
@@ -578,7 +578,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <Badge className="bg-white text-[#FDB913] mb-4 px-4 py-2 text-sm font-bold">
-              24/7 Emergency Service
+              ICU Equipped & Modern Facilities
             </Badge>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               Pet Emergency? We're Here to Help

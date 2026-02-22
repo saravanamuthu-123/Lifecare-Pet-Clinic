@@ -5,7 +5,7 @@
     "petName": "Bruno",
     "petType": "Dog",
     "rating": 5,
-    "text": "Dr. Rajesh performed emergency surgery on Bruno when he had a stomach issue. The care and attention they provided was exceptional. Bruno is now healthy and happy! I can't thank the team enough.",
+    "text": "Dr. P. Tamilmahan performed emergency surgery on Bruno when he had a severe stomach issue. The surgery and post-operative care were handled with great precision and compassion. Bruno is now healthy and happy! I can't thank the team enough.",
     "image": "/images/testimonials/client-1.jpg",
     "date": "2024-01-15"
   },
@@ -15,7 +15,7 @@
     "petName": "Whiskers",
     "petType": "Cat",
     "rating": 5,
-    "text": "Whiskers was suffering from a skin condition for months. Dr. Kavitha diagnosed the issue quickly and the treatment worked wonders. The clinic is always clean and the staff is so caring!",
+    "text": "Whiskers was suffering from a skin condition for months. Dr. M. Kesavan carefully diagnosed the issue and started the right treatment plan. The improvement was remarkable. The clinic is always clean and the staff is very caring!",
     "image": "/images/testimonials/client-2.jpg",
     "date": "2024-02-20"
   },
@@ -25,7 +25,7 @@
     "petName": "Max",
     "petType": "Dog",
     "rating": 5,
-    "text": "The 24/7 emergency service saved Max's life when he was hit by a vehicle. Dr. Vikram and the team worked tirelessly. Their dedication to animal care is truly remarkable. Highly recommended!",
+    "text": "When Max met with an accident, Dr. P. Tamilmahan and the team provided immediate surgical care and constant monitoring. Their expertise and dedication helped Max recover smoothly. Highly recommended for surgical care!",
     "image": "/images/testimonials/client-3.jpg",
     "date": "2024-03-10"
   },
@@ -35,7 +35,7 @@
     "petName": "Coco",
     "petType": "Parrot",
     "rating": 5,
-    "text": "Dr. Meera is amazing with exotic pets! Coco had a respiratory issue and she handled it with such expertise. It's hard to find good avian vets, but Lifecare is the best!",
+    "text": "Dr. M. Veeraselvam is amazing with exotic pets! Coco had a respiratory issue and he handled it with such expertise and patience. It's hard to find a good avian specialist, but this hospital truly stands out.",
     "image": "/images/testimonials/client-4.jpg",
     "date": "2023-12-05"
   },
@@ -45,7 +45,7 @@
     "petName": "Tommy",
     "petType": "Dog",
     "rating": 5,
-    "text": "Tommy's orthopedic surgery was handled perfectly by Dr. Arun. The post-op care and rehabilitation program helped him walk again. The entire team is professional and compassionate.",
+    "text": "Tommy's orthopedic surgery was handled perfectly by Dr. P. Tamilmahan. The post-operative care and rehabilitation guidance helped him walk comfortably again. The entire team is professional and compassionate.",
     "image": "/images/testimonials/client-5.jpg",
     "date": "2024-01-28"
   },
@@ -55,7 +55,7 @@
     "petName": "Mittens",
     "petType": "Cat",
     "rating": 5,
-    "text": "I've been bringing Mittens here for years for regular checkups and vaccinations. The clinic is well-maintained, staff is friendly, and the vets are knowledgeable. Wouldn't go anywhere else!",
+    "text": "I've been bringing Mittens here for regular checkups and vaccinations with Dr. S. Sundararaj. The clinic is well-maintained, the staff is friendly, and the doctors are knowledgeable. I trust them completely with my pet's health.",
     "image": "/images/testimonials/client-6.jpg",
     "date": "2024-02-14"
   }

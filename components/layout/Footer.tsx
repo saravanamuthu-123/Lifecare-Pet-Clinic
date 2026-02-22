@@ -152,16 +152,16 @@ export const Footer: React.FC = () => {
                     Reception: {clinicInfo.contact.reception}
                   </a>
                   <a
-                    href={`tel:${clinicInfo.contact.ambulance}`}
-                    className="text-gray-400 hover:text-[#FF6B7A] transition-colors"
-                  >
-                    Ambulance: {clinicInfo.contact.ambulance}
-                  </a>
-                  <a
                     href={`tel:${clinicInfo.contact.office}`}
                     className="text-gray-400 hover:text-[#FF6B7A] transition-colors"
                   >
                     Office: {clinicInfo.contact.office}
+                  </a>
+                  <a
+                    href={`tel:${clinicInfo.contact.ambulance}`}
+                    className="text-gray-400 hover:text-[#FF6B7A] transition-colors"
+                  >
+                    Ambulance: {clinicInfo.contact.ambulance}
                   </a>
                 </div>
               </li>

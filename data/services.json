@@ -247,5 +247,23 @@
       "Therapeutic exercises",
       "Pain management"
     ]
+  },
+  {
+    "id": "pet-spa",
+    "name": "Pet Spa",
+    "category": "Wellness Services",
+    "icon": "sparkles",
+    "shortDescription": "Luxury spa treatments to pamper and rejuvenate your pet.",
+    "description": "Treat your furry friend to a relaxing spa experience. Our Pet Spa offers premium pampering services designed to keep your pet looking fabulous, feeling refreshed, and smelling wonderful. From soothing baths to specialized skin and coat treatments, we provide a stress-free, luxurious experience for your beloved companion.",
+    "features": [
+      "Aromatherapy baths",
+      "Deep conditioning coat treatments",
+      "Skin moisturizing and soothing therapy",
+      "Pawdicure (nail trimming, filing & paw balm)",
+      "De-shedding and detangling treatments",
+      "Flea and tick spa treatment",
+      "Relaxation massage",
+      "Teeth brushing and fresh breath treatment"
+    ]
   }
 ]

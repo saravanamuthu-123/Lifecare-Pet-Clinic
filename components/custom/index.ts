@@ -9,3 +9,5 @@ export { CreativeMapSection } from './CreativeMapSection';
 export { BoneButton } from './BoneButton';
 export { CreativeServiceCard } from './CreativeServiceCard';
 export { CreativeTestimonialCard } from './CreativeTestimonialCard';
+export { GoogleReviewCard } from './GoogleReviewCard';
+export { GoogleReviewsSection } from './GoogleReviewsSection';

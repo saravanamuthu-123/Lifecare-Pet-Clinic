@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { PawButton, CreativeServiceCard, CreativeTestimonialCard, AnimatedPets, BoneButton } from '@/components/custom';
+import { PawButton, CreativeServiceCard, AnimatedPets, BoneButton, GoogleReviewsSection } from '@/components/custom';
 import { FloatingElements } from '@/components/custom/FloatingElements';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -18,7 +18,6 @@ import {
 import { Clock, Award, Heart, Shield, Phone, Activity, Dog, Cat, Bird, Footprints } from 'lucide-react';
 import clinicInfo from '@/data/clinic-info.json';
 import services from '@/data/services.json';
-import testimonials from '@/data/testimonials.json';
 
 export default function Home() {
   const featuredServices = services.slice(0, 6);
@@ -519,46 +518,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-[#F5F7FA] to-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Badge className="bg-[#FF6B7A] text-white mb-4">Testimonials</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              What Pet Parents Say
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Don't just take our word for it - hear from the pet parents who trust us with their beloved companions.
-            </p>
-          </motion.div>
-
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full max-w-6xl mx-auto"
-          >
-            <CarouselContent>
-              {testimonials.map((testimonial) => (
-                <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-2">
-                    <CreativeTestimonialCard {...testimonial} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
-      </section>
+      {/* Google Reviews */}
+      <GoogleReviewsSection />
 
       {/* Emergency Contact Banner */}
       <section className="py-16 bg-gradient-to-r from-[#FDB913] to-[#e5a40f] relative overflow-hidden">
